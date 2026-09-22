@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# uv keeps uv.lock in the repository on purpose - the pins are the point
+.uv/
+
+# ruff
+.ruff_cache/
+
+# marimo
+__marimo__/
+.marimo.toml
+
+# Exported notebooks
+build/
+
+# macOS / editors
+.DS_Store
+.idea/
+.vscode/

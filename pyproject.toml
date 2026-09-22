@@ -1,0 +1,40 @@
+[project]
+name = "operations-research"
+version = "0.1.0"
+description = "Marimo notebooks on operations research and analytics topics"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+  {name = "transentis", email = "support@transentis.com"}
+]
+# Exact pins: a notebook is a document, and a document that renders differently
+# next month is a bug. Bump them deliberately with `just upgrade`.
+dependencies = [
+    # Altair is the default plotting library here - marimo renders it as Vega-Lite,
+    # so charts keep their tooltips and selections in the browser.
+    "altair==6.3.0",
+    "marimo==0.24.2",
+    "numpy==2.5.3",
+    "pandas==3.0.6",
+    "pyarrow==25.0.1",
+]
+
+# The notebooks are the deliverable, not an importable library - nothing here is
+# meant to be installed into another environment.
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "ruff==0.16.8",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# marimo writes every cell as a function ending in a `return` of the names the
+# cell exports; for a cell that only renders output that return is bare. It is
+# part of the notebook format, not dead code - ruff must not strip it, or every
+# save in marimo would show up as a diff.
+ignore = ["PLR1711"]
