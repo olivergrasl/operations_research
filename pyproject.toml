@@ -13,9 +13,13 @@ dependencies = [
     # Altair is the default plotting library here - marimo renders it as Vega-Lite,
     # so charts keep their tooltips and selections in the browser.
     "altair==6.3.0",
+    # System dynamics framework behind the beergame notebook (model in src/beergame).
+    "bptk-py==3.1.1",
     "marimo==0.24.2",
-    "numpy==2.5.3",
-    "pandas==3.0.6",
+    # numpy and pandas are held at the exact versions bptk-py pins; raising them
+    # has to wait for a bptk-py release that allows it.
+    "numpy==2.3.1",
+    "pandas==2.3.0",
     "pyarrow==25.0.1",
 ]
 

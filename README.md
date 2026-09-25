@@ -9,6 +9,7 @@ when the controls move.
 | Notebook | Topic |
 |---|---|
 | [`notebooks/binary_entropy.py`](notebooks/binary_entropy.py) | The binary entropy function `H₂(x)` — uncertainty in a single biased binary outcome, in bits or nats |
+| [`notebooks/beergame.py`](notebooks/beergame.py) | Beergame policy experiments — the bullwhip effect in a four-stage supply chain, and how ordering policies tame it (System Dynamics, BPTK-Py) |
 
 ## Getting started
 
@@ -37,6 +38,10 @@ just edit      # open the notebook browser on notebooks/
 
 * Notebooks live in `notebooks/`, one topic per file, named in `snake_case`.
 * marimo stores notebooks as plain Python, so they diff and review like code.
+* Simulation models a notebook depends on live outside `notebooks/`: model code
+  in `src/<model>/`, BPTK-Py scenario files in `scenarios/`. BPTK-Py resolves the
+  model path in a scenario file (e.g. `src.beergame.beergame.Beergame`) from the
+  repository root, so the notebook changes into it before loading scenarios.
 * Dependencies are pinned exactly in `pyproject.toml`: a notebook is a document,
   and a document that renders differently next month is a bug.
 * Charts use [Altair](https://altair-viz.github.io), which marimo renders as
